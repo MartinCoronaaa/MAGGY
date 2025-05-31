@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Ti, Mi Corazón</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #ffccd5, #ff99aa);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+    }
+    h1 {
+      color: #ff3366;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    p {
+      color: #333;
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .heart {
+      color: #ff3366;
+      font-size: 2em;
+      animation: beat 1s infinite;
+    }
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    button {
+      background: #ff3366;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.1em;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #cc2952;
+    }
+    .petals {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+    .petal {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #ff6688;
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: fall 5s linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-100vh) rotate(0deg); opacity: 0.7; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="petals" id="petals"></div>
+  <div class="container">
+    <h1> Maggy De Mi Corazón<span class="heart">♥</span></h1>
+    <p>No puedo olvidar ese concierto de la Arrolladora, me trae muchos recuerdos, no sé si te pase lo mismo. Ese estado que subiste hace rato, no sé si en realidad es idirecta o no, sácame de la duda. Plis Plis<span class="heart">♥</span></p>
+    <p>Te quiero tantoooooo. Que si a alguien le hace falta, aquí hay para llevar... </p>
+    <p>¿Pero ya me vas a querer o no? </p>
+    <button onclick="alert('¡Gracias por considerar mi corazón! Espero tu respuesta con ilusión.')">Dime que sí</button>
+  </div>
+  <script>
+    // Crear pétalos de rosa cayendo
+    function createPetal() {
+      const petal = document.createElement('div');
+      petal.className = 'petal';
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.animationDuration = Math.random() * 3 + 2 + 's';
+      document.getElementById('petals').appendChild(petal);
+      setTimeout(() => petal.remove(), 5000);
+    }
+    setInterval(createPetal, 300);
+  </script>
+</body>
+</html>
